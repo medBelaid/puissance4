@@ -1,0 +1,87 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="title1">Jeux de Puissance 4 <h2 ng-show="startPart && settings.nbrParts > 0">Partie ({{matchStats.gamesPlayed }})</h2></div>
+    </div>
+<div class="row">
+    <div class="col-md-6">
+        <div ng-show="(endMatch || !startPart || settings.nbrParts <= 0) && showSettings">
+        <div class="col-md-6"  ng-repeat="player in players">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon{{player.id}}" style="background-color:{{player.color}};color:#fff;" >Nom </span>
+                <input class="form-control"  ng-model="player.name" placeholder="joueur {{player.id}}" aria-describedby="basic-addon{{player.id}}">
+            </div>
+            <br>
+        </div>
+        <div class="col-md-12">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon4">Nombre de parties du match </span>
+                <input type="number" class="form-control" ng-change="clearGameplayHistory()" ng-model="settings.nbrParts" placeholder="Nombre de parties du match" aria-describedby="basic-addon4" />
+            </div>
+            <br>
+            <button class="btn btn-success btn-block" ng-click="startNewMatch()" >Commencer le match</button>
+            <br>
+        </div>
+        </div>
+
+        <table class="table table-bordered" ng-show="startPart && settings.nbrParts > 0">
+            <tr>
+                <td ng-repeat="player in players">
+                    <div class="">
+                        <input ng-model="player.name" value="{{player.name}}" class="form-control" style="background-color:{{player.color}};color:#fff;" /> <br/>
+                        Nombre de coups : {{ player.nbrBallsInPart }} / {{ player.totalShots }}  <br/>
+                        Nombre de partie(s) jouée(s) : {{matchStats.gamesPlayed }}  <br/>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+        <table class="table table-bordered bg-gray">
+            <tr>
+                <td ng-repeat="player in players" class="playersScore">
+                    <div class="col-md-6">
+                        <img class ="currentIcon" src="images/currentPlayer{{player.id}}Icon.png" ng-show="player.current && !endMatch && startPart">
+                        <img src="images/player{{player.id}}.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="playerTitle"><span class="pull-right">{{player.name}} ({{player.result}})</span></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <table class="table table-bordered" ng-show="endMatch">
+            <tr>
+                <td ng-repeat="player in players">
+                    <div class="">
+                        <input ng-model="player.name" class="form-control" style="background-color:{{player.color}};color:#fff;" /><br/>
+                        Temps de réflexion : <b>{{ player.reflexionTime }} sec </b> <br/>
+                        ◦	Nombre de coups moyen par partie gagné: {{ getNbrShotsByWineParty(player.id - 1) }}  <br/>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+
+        <div class="col-md-12">
+            <div class="alert" ng-if="players[0].winner || players[1].winner || endMatch"
+                 ng-class="{'alert-success':endMatch === true, 'alert-info':players[0].winner || players[1].winner}">{{message}}</div>
+            <button class="btn btn-success btn-block" ng-show="!showSettings && endMatch" ng-click="showSettingsView()" >Refaire le match</button>
+        </div>
+
+</div>
+
+    <div class="col-md-6">
+            <div class="tableGame">
+                <div class="tableP4" ng-repeat="a in tableGame">
+                    <div class="" ng-repeat="b in a"><cell_pawn cell='{{b}}'/></div>
+                </div>
+                <div class="tableP4" ng-repeat="a in tableGamePlayer1">
+                    <div class="" ng-repeat="b in a"><cell_pawn cell='{{b}}'/></div>
+                </div>
+                <div class="tableP4" ng-repeat="a in tableGamePlayer2">
+                    <div class="" ng-repeat="b in a"><cell_pawn cell='{{b}}'/></div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>

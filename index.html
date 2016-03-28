@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="Puissance4app">
+
+<head>
+        <meta charset="UTF-8" />
+        <title>Jeux Puissance4</title>
+        
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script type="text/javascript" src="js/libs/jquery/jquery-1.11.2.min.js"></script>
+
+        <script type="text/javascript" src="js/libs/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/libs/angular/angular-route.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </head>
+    <body>
+
+
+        <div class="container">
+            <div ng-view></div>
+        </div>
+        
+        
+        <script type="text/javascript" src="js/controllers/p4Ctrl.js"></script>
+        <script type="text/javascript" src="js/services/timeDiffService.js"></script>
+        <script type="text/javascript" src="js/directives/cellPawn.js"></script>
+        <script type="text/javascript" src="js/libs/moment/moment.js"></script>
+    </body>
+</html>

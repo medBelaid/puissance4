@@ -1,0 +1,66 @@
+.tableP4{
+    margin-top: -40px;
+    position: relative;
+    background: #336EA6;
+}
+.bg-gray{
+    background: #f5f5f5;
+}
+
+.tableGame{
+    height: 500px;
+}
+
+.title1{
+    padding: 20px;
+    color: #FFDE33;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.playerTitle{
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+.players{
+    text-align: center;
+}
+
+.currentIcon{
+    position: absolute;
+    padding-left: 23px;
+    margin-top: -15px;
+    display: block;
+}
+
+.playersScore span{
+    font-size: 14pt;
+}
+
+.noPawn{
+    margin: 9px 0 0 9px;
+    border-radius: 100%;
+    height: 75%;
+    width: 75%;
+    cursor: pointer;
+    background-color: #fff;
+}
+.yellowPawn{
+    margin: 9px 0 0 9px;
+    border-radius: 100%;
+    height: 75%;
+    width: 75%;
+    cursor: pointer;
+    background-color:#F2CF3D;
+}
+
+.redPawn{
+    margin: 9px 0 0 9px;
+    border-radius: 100%;
+    height: 75%;
+    width: 75%;
+    cursor: pointer;
+    background-color:#EA5358;
+}
